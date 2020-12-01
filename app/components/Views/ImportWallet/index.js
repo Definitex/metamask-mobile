@@ -314,10 +314,10 @@ class ImportWallet extends PureComponent {
 				await SecureKeychain.setGenericPassword(opts.password, SecureKeychain.TYPES.BIOMETRICS);
 			} catch (e) {
 				Logger.error(e, 'User cancelled biometrics permission');
-				SecureKeychain.resetGenericPassword();
+				await SecureKeychain.resetGenericPassword();
 			}
 		} else {
-			SecureKeychain.resetGenericPassword();
+			await SecureKeychain.resetGenericPassword();
 		}
 
 		try {
